@@ -43,16 +43,16 @@ function showTemp(response) {
   );
 }
 
-function search(city) {
+function searchCity(city) {
   let apiKey = `ad121762f7a5646c2417d19be72f81a3`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
 
-function searchCity(event) {
+function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector(`#search-input`).value;
-  search(city);
+  searchCity(city);
 }
 
 function showPosition(position) {
@@ -67,25 +67,11 @@ function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
 let button = document.querySelector("button");
 button.addEventListener("click", getPosition);
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector(".recent-temp");
-  tempElement.innerHTML = 68;
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector(".recent-temp");
-  tempElement.innerHTML = 20;
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
-
-search("Kyiv");
+searchCity("Kyiv");
