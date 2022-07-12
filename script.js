@@ -2,11 +2,11 @@ let now = new Date();
 let currentTime = document.querySelector(`#current-time`);
 
 let days = [
-  "Sanday",
+  "Sunday",
   "Monday",
-  "Tueday",
+  "Tuesday",
   "Wednesday",
-  "Thusday",
+  "Thursday",
   "Friday",
   "Saturday",
 ];
