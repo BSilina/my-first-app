@@ -16,6 +16,10 @@ body {
   }
 }
 
+.all-content {
+  max-width: 900px;
+}
+
 p {
   margin: 0;
   text-align: center;
@@ -165,4 +169,17 @@ input[type="submit"]:hover {
 }
 .weather-icon {
   width: 100px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.code-link {
+  color: #ffe6e6;
+  text-decoration: none;
+}
+.code-link:hover {
+  color: #655CB0;
+  font-size: larger;
 }
