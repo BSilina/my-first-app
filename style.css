@@ -85,7 +85,7 @@ input[type="text"]:focus:hover {
 }
 
 input[type="text"]:focus {
-  width: 400px;
+  width: 300px;
   z-index: 1;
   border-bottom: 1px solid #ffe6e6;
   cursor: text;
