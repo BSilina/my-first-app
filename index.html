@@ -24,27 +24,36 @@
     <div class="container-fluid all-content">
       <div class="row">
         <div class="header mt-5">
-          <div class="search-city">
-            <form class="d-flex" role="search" id="search-form">
-              <input
-                type="text"
-                name="search"
-                placeholder="Search city..."
-                autocomplete="off"
-                id="search-input"
-              />
-              <input id="search" type="submit" />
-              <i class="fas fa-search"></i>
-            </form>
+          <div class="row">
+            <div class="col-sm d-inline-block">
+              <h1 class="current-city" id="city"></h1>
+              <span id="country"></span>
+            </div>
+            <div class="col-sm search-city">
+              <form class="d-flex" role="search" id="search-form">
+                <input
+                  type="text"
+                  name="search"
+                  placeholder="Search city..."
+                  autocomplete="off"
+                  id="search-input"
+                />
+                <input id="search" type="submit" />
+                <i class="fas fa-search"></i>
+              </form>
+            </div>
           </div>
         </div>
         <div class="col-sm main-content px-2 border-top-0 shadow rounded">
           <div class="row">
             <div class="col-sm p-0">
-              <h1 class="main-header" id="city"></h1>
               <p id="current-time"></p>
               <button class="location-btn">
-                <img src="icons/392502_gps_location_map_marker_icon.svg" alt="location" class="location-icon">
+                <img
+                  src="icons/392502_gps_location_map_marker_icon.svg"
+                  alt="location"
+                  class="location-icon"
+                />
               </button>
             </div>
             <div class="col-sm p-0">
@@ -139,7 +148,10 @@
           /></span>
         </div>
         <footer class="footer">
-          <a class="code-link" href="https://github.com/BSilina/my-first-app.git" target="_blank"
+          <a
+            class="code-link"
+            href="https://github.com/BSilina/my-first-app.git"
+            target="_blank"
             >Open-source code</a
           >
           by Vasylyna Batiuk

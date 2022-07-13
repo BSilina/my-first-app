@@ -36,11 +36,18 @@ function showTemp(response) {
   );
   document.querySelector(".info").innerHTML =
     response.data.weather[0].description;
-  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#city").innerHTML = response.data.name + ", ";
+  document.querySelector("#country").innerHTML = response.data.sys.country;
   document.querySelector(".humidity").innerHTML = response.data.main.humidity;
   document.querySelector(".wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document
+    .querySelector("#current-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 function searchCity(city) {
