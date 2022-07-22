@@ -1,193 +1,257 @@
-body {
-  background-color: #ce9ae6 !important;
-  background-image: url(https://66.media.tumblr.com/0f3927f0017e84b9c6ec69901c5a825a/tumblr_n9lwm7N7VX1tz79vpo1_r1_500.gif);
-  background-repeat: repeat-x;
-  background-size: auto 100vh;
-  animation: bgMove 200s infinite;
-  animation-timing-function: linear;
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+
+  --white: #ffffffba;
+  --greyLight-1: #e4ebf5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+  --shadow-color: rgba(55, 84, 170, 0.15);
+  --shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+    -0.2rem -0.2rem 0.5rem var(--white);
+  --inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+    inset -0.2rem -0.2rem 0.5rem var(--white);
 }
 
-@keyframes bgMove {
-  from {
-    background-position: 0% 0%;
-  }
-  to {
-    background-position: 199% 0%;
-  }
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-.all-content {
-  max-width: 900px;
+html {
+  box-sizing: border-box;
+  font-size: 65%;
+  overflow-y: scroll;
+
+  @media screen and (min-width: 900px) {
+    font-size: 75%;
+  }
+}
+/* List parameters */
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+li:first-letter {
+  text-transform: capitalize;
 }
 
 p {
   margin: 0;
   text-align: center;
-  font-family: "Mali", cursive, sans-serif;
-}
-.header {
-  font-family: "Poppins", "Varela Round", sans-serif;
-  background: none;
-  color: #ffe6e6;
-  text-shadow: 1px 2px 10px #407088;
-}
-.current-city {
-  font-size: 40px;
-  text-align: center;
-  float: left;
-  text-shadow: 1px 2px 10px #407088;
-}
-#country {
-  display: block;
-  margin-top: 7px;
-  font-size: 28px;
+  font-size: 14px;
 }
 
-#current-time {
-  font-size: 22px;
+hr {
+  width: 280px;
+  color: var(--primary-light) !important;
+  margin: 0 auto !important;
+  border: 1px solid !important;
 }
-.location-btn {
-  display: block;
+
+/* App content */
+.main-content {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-perspective: 1000;
+  width: 400px;
+  height: min-content;
+  font-family: "Merriweather Sans", sans-serif;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  width: 100px;
-  height: 43px;
   border-radius: 22px;
-  border-color: transparent;
-  background: transparent;
-  transition: all 0.2s ease-in;
-}
-.location-btn:hover {
-  border: 2px solid #ce9ae6;
-}
-.location-icon {
-  width: 30px;
-}
-.location-icon:hover {
-  width: 38px;
-  transition: all 0.2s ease-in;
-}
-.search-city {
-  height: 50px;
-  float: right;
-  position: relative;
+  background: var(--greyLight-1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
-input[type="text"] {
+/* Find location button */
+.location-btn {
+  position: relative;
+  top: -12px;
+  width: 50px;
   height: 50px;
-  font-size: 35px;
-  display: inline-block;
-  border: none;
-  outline: none;
-  color: #ffe6e6;
-  padding-right: 60px;
-  width: 0px;
-  position: absolute;
-  top: 0;
-  right: 30px;
-  background: none;
-  z-index: 3;
-  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  background: var(--greyLight-1);
+  border-color: transparent;
+  border-radius: 200px;
+  box-shadow: var(--shadow);
+  transition: 0.4s cubic-bezier(0, 0.57, 0.49, 1.51);
   cursor: pointer;
 }
-
-input[type="text"]:focus:hover {
-  border-bottom: 1px solid #ffe6e6;
+.location-btn:hover {
+  box-shadow: var(--inner-shadow);
+  transform: scale(0.9);
 }
 
-input[type="text"]:focus {
-  width: 300px;
-  z-index: 1;
-  border-bottom: 1px solid #ffe6e6;
-  cursor: text;
-  background: #655cb0;
+.location-icon {
+  font-size: 35px;
+  color: var(--primary-light);
 }
-input[type="submit"] {
-  height: 50px;
-  width: 60px;
+.location-icon:hover {
+  color: var(--primary-dark);
+}
+
+/* Name location and current time */
+
+.current-city {
   display: inline-block;
-  background: center no-repeat;
-  text-indent: -10000px;
-  border: none;
-  position: absolute;
-  top: 0;
-  right: 30px;
-  z-index: 2;
-  opacity: 0.4;
-  transition: opacity 0.4s ease;
+  font-size: 38px;
+  color: #161d6f;
 }
-
-input[type="submit"]:hover {
-  opacity: 0.8;
+#country {
+  display: inline-block;
+  font-size: 28px;
+  color: #161d6f;
 }
-
-.search-city .fas {
-  font-size: 44px;
-  position: absolute;
-  top: 0;
-  right: 30px;
-}
-
-.main-content {
-  font-family: "Poppins", "Varela Round", sans-serif;
-  color: #ffe6e6;
-}
-
-.recent-temp {
-  font-size: 90px;
-}
-
-.unit {
-  color: #ffe6e6;
-  text-decoration: none;
-  font-size: 30px;
-}
-.information {
-  text-align: center;
+#current-time {
+  display: block;
+  margin: 0 auto;
   font-size: 20px;
-  text-shadow: 1px 2px 10px #407088;
+  color: var(--primary-dark);
+}
+
+/* Search city input */
+
+.s-input {
+  display: block;
+  margin: 0 auto;
+  font-size: 18px;
+  padding-left: 45px;
+  width: 300px;
+  height: 40px;
+  background: none;
+  border-color: transparent;
+  outline: none;
+  color: var(--primary-dark);
+  border-radius: 200px;
+  box-shadow: var(--inner-shadow);
+}
+
+.s-input::placeholder {
+  color: var(--greyDark);
+  letter-spacing: normal;
+  transform-origin: center left;
+  transition: all 0.5s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+.s-input:focus::placeholder {
+  letter-spacing: 60px;
+  transform: translateX(300px) scale(2);
+}
+
+.s-input:focus {
+  outline: none;
+  box-shadow: var(--shadow);
+}
+
+.search-icon {
+  position: relative;
+  top: 32px;
+  right: 120px;
+  font-size: 22px;
+  color: #2155cd;
+  transition: 0.3s ease;
+}
+
+/* Main weather information */
+.main-inform {
+  border-radius: 15px;
+}
+
+.information {
+  padding: 0;
+  font-size: 16px;
+  color: var(--primary-dark);
 }
 
 .first-weather-icon {
-  width: 150px;
+  position: relative;
+  bottom: 20px;
+  left: 60px;
+  width: 118px;
 }
+
+.recent-temp {
+  float: left;
+  font-size: 65px;
+  color: #161d6f;
+}
+
+.unit {
+  text-decoration: none;
+  font-size: 20px;
+  color: var(--primary-dark);
+  cursor: default;
+}
+
+.active {
+  color: var(--primary-light);
+}
+.active:hover {
+  text-decoration: none;
+  color: var(--primary-light);
+}
+
+/* 6 Days forecast sliders */
 .second-heading {
-  color: #ffe6e6;
-  font-size: 30px;
-  text-shadow: 1px 2px 10px #407088;
+  color: #161d6f;
 }
 
 .second-content {
-  font-family: "Poppins", "Varela Round", sans-serif;
-  color: #ffe6e6;
-  text-shadow: 1px 2px 10px #407088;
-  cursor: pointer;
+  width: 370px;
+  height: max-content;
+  margin: 0 auto;
+  padding: 15px;
   text-align: center;
-  transition: all 0.1s ease-in-out;
-  max-width: 450px !important;
+  color: var(--primary-dark);
+  border-radius: 40px;
+  box-shadow: var(--inner-shadow);
 }
 
 .weekdays {
-  text-align: center;
-  font-size: 25px;
-  height: 45px;
+  font-size: 20px;
+  color: #161d6f;
 }
-.second-content:hover {
-  border: 1px solid #ce9ae6;
-  background: #ce9ae6;
+
+.arrow-left,
+.arrow-right {
+  width: 3rem !important;
+  background-color: var(--primary-light);
+  border-radius: 14px;
+  box-shadow: var(--shadow-color);
 }
+
+.arrow-left {
+  border-radius: 0 14px;
+}
+
+.arrow-right {
+  border-radius: 14px 0;
+}
+
 .weather-icon {
   width: 100px;
 }
-
+/* Footer */
 .footer {
-  text-align: center;
+  font-size: 16px;
 }
 
 .code-link {
-  color: #ffe6e6;
+  color: var(--primary-light);
   text-decoration: none;
+  transition: 0.4s ease-in-out transform, 0.4s ease-in-out;
 }
 .code-link:hover {
-  color: #655cb0;
+  color: var(--primary-dark);
   font-size: larger;
 }
