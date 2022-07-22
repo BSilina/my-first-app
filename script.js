@@ -1,5 +1,4 @@
 let now = new Date();
-let currentTime = document.querySelector(`#current-time`);
 
 let days = [
   "Sunday",
@@ -27,19 +26,21 @@ let months = [
 ];
 let month = months[now.getMonth()];
 let currentDate = now.getDate();
-let year = now.getFullYear();
-currentTime.innerHTML = `${day}, ${currentDate} ${month}, ${year}`;
+
+document.querySelector(
+  "#current-time"
+).innerHTML = `${day}, ${currentDate} ${month}`;
 
 function showTemp(response) {
-  document.querySelector(".recent-temp").innerHTML = Math.round(
+  document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector(".info").innerHTML =
+  document.querySelector("#info").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#city").innerHTML = response.data.name + ", ";
   document.querySelector("#country").innerHTML = response.data.sys.country;
-  document.querySelector(".humidity").innerHTML = response.data.main.humidity;
-  document.querySelector(".wind").innerHTML = Math.round(
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
   document
@@ -48,6 +49,7 @@ function showTemp(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+  celsiusTemp = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -74,6 +76,31 @@ function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsius);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
