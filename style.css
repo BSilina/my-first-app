@@ -72,8 +72,8 @@ hr {
   top: -12px;
   width: 50px;
   height: 50px;
-  background: var(--greyLight-1);
   border-color: transparent;
+  background: transparent;
   border-radius: 200px;
   box-shadow: var(--shadow);
   transition: 0.4s cubic-bezier(0, 0.57, 0.49, 1.51);
@@ -86,10 +86,10 @@ hr {
 
 .location-icon {
   font-size: 35px;
-  color: var(--primary-light);
+  color: #5a6be3;
 }
 .location-icon:hover {
-  color: var(--primary-dark);
+  color: #3b4f7d;
 }
 
 /* Name location and current time */
@@ -97,18 +97,18 @@ hr {
 .current-city {
   display: inline-block;
   font-size: 38px;
-  color: #161d6f;
+  color: #3b4f7d;
 }
 #country {
   display: inline-block;
   font-size: 28px;
-  color: #161d6f;
+  color: #6c7b9e;
 }
 #current-time {
   display: block;
   margin: 0 auto;
   font-size: 20px;
-  color: var(--primary-dark);
+  color: #5a6be3;
 }
 
 /* Search city input */
@@ -116,14 +116,14 @@ hr {
 .s-input {
   display: block;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 20px;
   padding-left: 45px;
   width: 300px;
-  height: 40px;
+  height: 45px;
   background: none;
   border-color: transparent;
   outline: none;
-  color: var(--primary-dark);
+  color: #3b4f7d;
   border-radius: 200px;
   box-shadow: var(--inner-shadow);
 }
@@ -147,87 +147,136 @@ hr {
 
 .search-icon {
   position: relative;
-  top: 32px;
+  top: 34px;
   right: 120px;
   font-size: 22px;
-  color: #2155cd;
+  color: #5a6be3;
   transition: 0.3s ease;
 }
 
 /* Main weather information */
-.main-inform {
-  border-radius: 15px;
-}
 
-.information {
-  padding: 0;
-  font-size: 16px;
-  color: var(--primary-dark);
+.main-icon,
+.temp {
+  height: 80px;
 }
 
 .first-weather-icon {
   position: relative;
   bottom: 20px;
-  left: 60px;
+  left: 80px;
   width: 118px;
 }
 
 .recent-temp {
   float: left;
   font-size: 65px;
-  color: #161d6f;
+  color: #3b4f7d;
 }
 
 .unit {
   text-decoration: none;
   font-size: 20px;
-  color: var(--primary-dark);
+  color: #3b4f7d;
   cursor: default;
 }
 
 .active {
-  color: var(--primary-light);
+  color: #5a6be3;
 }
 .active:hover {
   text-decoration: none;
-  color: var(--primary-light);
+  color: #5a6be3;
+}
+
+.parameters-btn {
+  width: 200px !important;
+  height: 30px !important;
+  margin: 0 auto;
+  border-color: transparent;
+  background: transparent;
+  transition: 0.4s cubic-bezier(0, 0.8, 0.6, 1.51);
+}
+
+.parameters-btn:hover {
+  box-shadow: -10px -10px 30px #eaf6f7ba, 10px 10px 30px #aeaec040,
+    inset -10px -10px 10px #aeaec025, inset 10px 10px 10px #f1f8f9db;
+  border-radius: 30px;
+}
+
+.arrow-down-icon {
+  color: #5a6be3;
+  font-size: 20px;
+}
+
+.parameters {
+  border-radius: 20px;
+  flex-shrink: unset !important;
+  padding: 0;
+  font-size: 16px;
+  color: #6c7b9e;
+  background: #E8DAF4;
+  
+}
+
+#info:first-letter {
+  text-transform: capitalize;
+}
+
+.param-icons {
+  font-size: 30px;
 }
 
 /* 6 Days forecast sliders */
 .second-heading {
-  color: #161d6f;
+  color: #3b4f7d;
 }
 
 .second-content {
   width: 370px;
   height: max-content;
   margin: 0 auto;
-  padding: 15px;
+  padding: 5px;
   text-align: center;
-  color: var(--primary-dark);
+  color: #6c7b9e;
   border-radius: 40px;
   box-shadow: var(--inner-shadow);
 }
 
 .weekdays {
   font-size: 20px;
-  color: #161d6f;
+  color: #5a6be3;
+}
+
+.weekdays-date {
+  font-size: 16px;
 }
 
 .arrow-left,
 .arrow-right {
   width: 3rem !important;
-  background-color: var(--primary-light);
-  border-radius: 14px;
-  box-shadow: var(--shadow-color);
 }
 
-.arrow-left {
-  border-radius: 0 14px;
+.arrow-right-icon,
+.arrow-left-icon {
+  font-size: 38px;
+  color: #5a6be3;
+  transition: 0.4s cubic-bezier(0, 0.57, 0.49, 1.51);
 }
 
-.arrow-right {
-  border-radius: 14px 0;
+.arrow-right-icon:hover,
+.arrow-left-icon:hover {
+  box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.918), 10px 10px 30px #aeaec040,
+    inset -10px -10px 10px #aeaec025, inset 10px 10px 10px rgba(255, 255, 255, 0.89);
+  border-radius: 30px;
+}
+
+.daily-temp {
+  font-size: 16px;
+}
+
+.min-temp {
+  opacity: 0.6;
 }
 
 .weather-icon {
@@ -239,11 +288,11 @@ hr {
 }
 
 .code-link {
-  color: var(--primary-light);
+  color: #5a6be3;
   text-decoration: none;
   transition: 0.4s ease-in-out transform, 0.4s ease-in-out;
 }
 .code-link:hover {
-  color: var(--primary-dark);
+  color: #3b4f7d;
   font-size: larger;
 }
