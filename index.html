@@ -56,29 +56,62 @@
           </div>
         </div>
         <!-- Main cntent -->
-        <div class="row main-inform mt-5">
+        <div class="row main-inform mt-5 mx-3">
           <!-- main information -->
-          <div class="col-5 px-0 temperature">
+          <div class="col px-0 main-icon">
             <img
               alt="clouds icon"
               class="first-weather-icon"
               id="current-icon"
             />
           </div>
-          <div class="col-7 p-0 temp">
+          <div class="col p-0 temp">
             <h2 id="current-temp" class="recent-temp"></h2>
             <a href="#" id="celsius-link" class="unit active">°C|</a>
             <a href="#" id="fahrenheit-link" class="unit">°F</a>
           </div>
-          <div class="parameters text-center mb-4">
-            <ul class="information">
-              <li id="info"></li>
-              <li>Humidity: <span id="humidity"></span>%</li>
-              <li>Wind: <span id="wind"></span> m/s</li>
-            </ul>
+          <button
+            class="parameters-btn"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Details<span
+              class="iconify arrow-down-icon"
+              data-icon="dashicons:arrow-down-alt2"
+            ></span>
+          </button>
+          <div class="collapse" id="collapseExample">
+            <div class="parameters m-3 text-center">
+              <div class="row g-0">
+                <div class="col-6" id="info"></div>
+                <div class="col-6">
+                  <span
+                    class="iconify param-icons"
+                    data-icon="wi:humidity"
+                  ></span
+                  >: <span id="humidity"></span>%
+                </div>
+                <div class="col-6">
+                  <span class="iconify param-icons" data-icon="bx:wind"></span>:
+                  <span id="wind"></span> m/s
+                </div>
+                <div class="col-6">
+                  Feels like: <span id="feels-like"></span>
+                </div>
+                <div class="col-6">
+                  Cloudiness: <span id="cloudiness"></span> %
+                </div>
+                <div class="col-6">
+                  Pressure: <span id="pressure"></span> hPa
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="px-3 text-center mb-4">
+        <div class="px-3 text-center mb-3">
           <h2 class="second-heading">5 Days Forecast</h2>
           <hr />
         </div>
@@ -89,11 +122,14 @@
         >
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <div class="second-content">
-                <h3 class="weekdays">Monday</h3>
-                <p>June 25</p>
+              <div class="second-content" id="forecast">
+                <h3 class="weekdays">
+                  Monday, <span class="weekdays-date">June 25</span>
+                </h3>
                 <br />
-                <span> 19°/29° C</span>
+                <span class="daily-temp">
+                  29°/ <span class="min-temp">19</span> 19° C</span
+                >
                 <br />
                 <img
                   src="icons/ic_sun.svg"
@@ -165,9 +201,11 @@
             data-bs-target="#carouselExampleControlsNoTouching"
             data-bs-slide="prev"
           >
-            <span
-              class="carousel-control-prev-icon arrow-left"
-              aria-hidden="true"
+            <span class="arrow-left" aria-hidden="true"
+              ><span
+                class="iconify arrow-left-icon"
+                data-icon="dashicons:arrow-left-alt2"
+              ></span
             ></span>
             <span class="visually-hidden">Previous</span>
           </button>
@@ -177,9 +215,11 @@
             data-bs-target="#carouselExampleControlsNoTouching"
             data-bs-slide="next"
           >
-            <span
-              class="carousel-control-next-icon arrow-right"
-              aria-hidden="true"
+            <span class="arrow-right" aria-hidden="true">
+              <span
+                class="iconify arrow-right-icon"
+                data-icon="dashicons:arrow-right-alt2"
+              ></span
             ></span>
             <span class="visually-hidden">Next</span>
           </button>
