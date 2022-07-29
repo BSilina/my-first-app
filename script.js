@@ -43,6 +43,10 @@ function showTemp(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector("#feels-like").innerHTML =
+    Math.round(response.data.main.feels_like) + "°C";
+  document.querySelector("#cloudiness").innerHTML = response.data.clouds.all;
+  document.querySelector("#pressure").innerHTML = response.data.main.pressure;
   document
     .querySelector("#current-icon")
     .setAttribute(
