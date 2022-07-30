@@ -18,6 +18,9 @@
   padding: 0;
   box-sizing: inherit;
 }
+html {
+  height: 100%;
+}
 
 hr {
   width: 280px;
@@ -28,10 +31,9 @@ hr {
 
 /* App content */
 .main-content {
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-perspective: 1000;
   width: 400px !important;
-  height: min-content;
+  height: auto !important;
+  min-height: 100%;
   font-family: "Merriweather Sans", sans-serif;
   justify-content: center;
   align-items: center;
