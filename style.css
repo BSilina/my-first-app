@@ -19,16 +19,6 @@
   box-sizing: inherit;
 }
 
-html {
-  box-sizing: border-box;
-  font-size: 65%;
-  overflow-y: scroll;
-
-  @media screen and (min-width: 900px) {
-    font-size: 75%;
-  }
-}
-
 hr {
   width: 280px;
   color: #808cee !important;
@@ -40,7 +30,7 @@ hr {
 .main-content {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-perspective: 1000;
-  width: 400px;
+  width: 400px !important;
   height: min-content;
   font-family: "Merriweather Sans", sans-serif;
   justify-content: center;
@@ -164,7 +154,7 @@ hr {
 .first-weather-icon {
   position: relative;
   bottom: 20px;
-  left: 80px;
+  left: 60px;
   width: 118px;
 }
 
@@ -230,10 +220,10 @@ hr {
 /* 6 Days forecast sliders */
 .second-heading {
   color: #3b4f7d;
+  font-size: 24px;
 }
 
 .second-content {
-  width: 370px;
   height: max-content;
   margin: 0 auto;
   padding: 5px;
