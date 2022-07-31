@@ -21,6 +21,9 @@
 html {
   height: 100%;
 }
+body {
+  height: 100%;
+}
 
 hr {
   width: 280px;
