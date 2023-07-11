@@ -41,7 +41,7 @@ li {
 
 /* App content */
 .main-content {
-  width: 480px !important;
+  width: 85% !important;
   height: auto !important;
   min-height: 100%;
   font-family: "Merriweather Sans", sans-serif;
