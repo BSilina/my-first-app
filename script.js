@@ -94,7 +94,7 @@ function displayForecast(response) {
   let accordionItems = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"];
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="accordion" id="weekday-detailed">`;
+  let forecastHTML = `<div class="row accordion" id="weekday-detailed">`;
   forecast.forEach(function (forecastDay, index) {
     if (index > 0 && index < 8) {
       forecastHTML =
@@ -115,13 +115,13 @@ function displayForecast(response) {
             forecastDay.dt
           )}</span>
         </div>
-        <div class="col-3 image">
+        <div class="col-4 image">
           <img id="weekly-weather-icon" class="image-middle"
             src="https://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
             }@2x.png"/>
         </div>
-        <div class="col-4 center index">
+        <div class="col-4 index">
           <strong id="weekday-temp-max">${Math.round(
             forecastDay.temp.max
           )}</strong> /
@@ -136,8 +136,8 @@ function displayForecast(response) {
       class="accordion-collapse collapse"
       aria-labelledby="panelsStayOpen-heading${accordionItems[index]}">
       <div class="accordion-body p-0 dynamic-font">
-        <ul>
-          <li>
+        <ul class="m-0 p-0">
+          <li class="first-element">
             <span class="iconify" data-icon="bi:sunrise" data-inline="false"
             ></span>
             <span class="text">morning</span>
@@ -145,28 +145,28 @@ function displayForecast(response) {
             ${Math.round(forecastDay.temp.morn)}<span>°C</span>
            </span>
           </li>
-          <li>
+          <li class="second-element">
             <span class="iconify" data-icon="fontisto:day-sunny" data-inline="false"></span>
             <span class="text">day</span>
             <span class="index" id="temp-day">
             ${Math.round(forecastDay.temp.day)}<span>°C</span>
           </span>
           </li>
-          <li>
+          <li class="third-element">
             <span class="iconify" data-icon="akar-icons:umbrella" data-inline="false"></span>
             <span class="text">chance</span>
             <span class="index" id="weekday-chance-of-rain">
             ${Math.round(forecastDay.pop)}%
            </span>
           </li>
-          <li>
+          <li class="forth-element">
             <span class="iconify" data-icon="wi:barometer" data-inline="false"></span>
             <span class="text">pressure</span>
             <span class="index" id="weekday-pressure">
             ${forecastDay.pressure} hPa
            </span>
           </li>
-          <li>
+          <li class="fifth-element">
             <span class="iconify" data-icon="bi:wind" data-inline="false"></span>
             <span class="text">w.speed</span>
             <span class="index">
@@ -176,49 +176,49 @@ function displayForecast(response) {
             <span>km/h</span>
            </span>
           </li>
-          <li>
+          <li class="six-element">
             <span class="iconify" data-icon="wi:sunrise" data-inline="false"></span>
             <span class="text">sunrise</span>
             <span class="index" id="weekday-sunrise">
             ${formatSunrise(forecastDay.sunrise)}
            </span>
           </li>
-          <li>
+          <li class="seven-element">
             <span class="iconify" data-icon="bi:sunset" data-inline="false"></span>
             <span class="text">evening</span>
             <span class="index" id="temp-evening">
             ${Math.round(forecastDay.temp.eve)}<span>°C</span>
           </span>
           </li>
-          <li>
+          <li class="eight-element">
             <span class="iconify" data-icon="mdi:weather-night" data-inline="false"></span>
             <span class="text">night</span>
             <span class="index" id="temp-night">
             ${Math.round(forecastDay.temp.night)}<span>°C</span>
            </span>
           </li>
-          <li>
+          <li class="nine-element">
             <span class="iconify" data-icon="akar-icons:cloud" data-inline="false"></span>
             <span class="text">clouds</span>
             <span class="index" id="weekday-cloudiness">
              ${forecastDay.clouds}%
             </span>
           </li>
-          <li>
+          <li class="tenth-element">
             <span class="iconify" data-icon="mi:drop" data-inline="false"></span>
             <span class="text">humidity</span>
             <span class="index" id="weekday-humidity">
              ${forecastDay.humidity}%
            </span>
           </li>
-          <li>
+          <li class="eleventh-element">
             <span class="iconify" data-icon="carbon:uv-index-alt" data-inline="false"></span>
             <span class="text">UV-index</span>
             <span class="index" id="weekday-uv-index">
              ${forecastDay.uvi}
            </span>
           </li>
-          <li>
+          <li class="twelfth-element">
             <span class="iconify" data-icon="wi:sunset" data-inline="false"></span>
             <span class="text">sunset</span>
             <span class="index" id="weekday-sunset">
@@ -246,6 +246,8 @@ function showTemp(response) {
     response.data.main.temp
   );
   document.querySelector("#info").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#w-description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#city").innerHTML = response.data.name + ", ";
   document.querySelector("#country").innerHTML = response.data.sys.country;
